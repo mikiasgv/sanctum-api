@@ -1,0 +1,35 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\Event;
+use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+class EventFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Event::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'planner_id' => User::factory(),
+            'title' => $this->faker->sentence(1),
+            'description' => $this->faker->sentence(3),
+            'start'  =>  now(),
+            'end'  =>  now(),
+            'location'  =>  $this->faker->word,
+            'status' => $this->faker->randomElement(['Test', 'Active', 'Closed', 'Archived'])
+        ];
+    }
+}

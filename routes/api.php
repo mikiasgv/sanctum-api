@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\CventController;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\TaskController;
 use Illuminate\Http\Request;
@@ -19,9 +20,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/token', [AuthController::class, 'login']);
 
+
 Route::middleware('auth:sanctum')->group(function () {
-    Route::resource('projects', ProjectController::class);
-    Route::resource('tasks', TaskController::class)->except(['index', 'show']);
+    Route::resource('events', CventController::class);
+
+    Route::delete('/token', [AuthController::class, 'destroy']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

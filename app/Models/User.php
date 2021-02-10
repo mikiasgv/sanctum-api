@@ -42,8 +42,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function projects()
+    public function events()
     {
-        return $this->hasMany(Project::class);
+        return $this->hasMany(Project::class, 'planner_id');
     }
 }

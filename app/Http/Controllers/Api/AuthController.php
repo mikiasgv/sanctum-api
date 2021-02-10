@@ -17,6 +17,7 @@ class AuthController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
+            'device_id' => 'required'
         ]);
 
         // $credentials = request(['email', 'password']);
@@ -39,6 +40,11 @@ class AuthController extends Controller
             ]);
         }
 
-        return $user->createToken('authToken')->plainTextToken;
+        return $user->createToken($request->device_id)->plainTextToken;
+    }
+
+    public function destroy(Request $request)
+    {
+        auth()->user()->tokens()->where('name', $request->device_id)->delete();
     }
 }
