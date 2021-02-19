@@ -21,6 +21,8 @@ class CreateEventsTable extends Migration
             $table->dateTime('start');
             $table->dateTime('end');
             $table->string('location');
+            $table->double('latitude');
+            $table->double('longitude');
             $table->string('status');
             $table->timestamps();
 

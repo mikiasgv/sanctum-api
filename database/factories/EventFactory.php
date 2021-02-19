@@ -29,6 +29,8 @@ class EventFactory extends Factory
             'start'  =>  now(),
             'end'  =>  now(),
             'location'  =>  $this->faker->word,
+            'latitude' => -34.397,
+            'longitude' => 150.644,
             'status' => $this->faker->randomElement(['Test', 'Active', 'Closed', 'Archived'])
         ];
     }
