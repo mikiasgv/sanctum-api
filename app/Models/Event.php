@@ -9,7 +9,7 @@ class Event extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'start', 'end', 'location', 'status'];
+    protected $fillable = ['title', 'description', 'start', 'end', 'location', 'latitude', 'longitude', 'status'];
 
     public function planner()
     {

@@ -44,6 +44,6 @@ class User extends Authenticatable
 
     public function events()
     {
-        return $this->hasMany(Project::class, 'planner_id');
+        return $this->hasMany(Event::class, 'planner_id');
     }
 }
