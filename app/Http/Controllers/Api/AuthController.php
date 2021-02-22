@@ -20,15 +20,6 @@ class AuthController extends Controller
             'device_id' => 'required'
         ]);
 
-        // $credentials = request(['email', 'password']);
-
-        // if(!Auth::attempt($credentials)) {
-        //     return response()->json([
-        //         'status_code' => 500,
-        //         'message' => 'Unauthorized'
-        //     ]);
-        // }
-
 
         $user = ModelsUser::where('email', $request->email)->first();
 

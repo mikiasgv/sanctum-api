@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EventRequest;
 use App\Http\Resources\EventCollectionResource;
 use App\Http\Resources\EventResource;
 use App\Models\Event;
@@ -10,6 +11,9 @@ use Illuminate\Http\Request;
 
 class CventController extends Controller
 {
+    public function __construct() {
+        $this->authorizeResource(Event::class, 'event');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +32,7 @@ class CventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventRequest $request)
     {
         $event = auth()->user()->events()->create($request->all());
 
@@ -53,7 +57,7 @@ class CventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(EventRequest $request, Event $event)
     {
         $event->update($request->all());
 
