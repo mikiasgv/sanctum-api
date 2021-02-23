@@ -15,4 +15,9 @@ class Event extends Model
     {
         return $this->belongsTo(User::class, 'planner_id');
     }
+
+    public function checkpoints()
+    {
+        return $this->hasMany(Checkpoint::class);
+    }
 }

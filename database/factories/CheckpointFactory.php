@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
-use App\Models\Project;
-use App\Models\Task;
+use App\Models\Checkpoint;
+use App\Models\Event;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class TaskFactory extends Factory
+class CheckpointFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Task::class;
+    protected $model = Checkpoint::class;
 
     /**
      * Define the model's default state.
@@ -23,8 +23,8 @@ class TaskFactory extends Factory
     public function definition()
     {
         return [
-            'project_id' => Project::factory(),
-            'name' => $this->faker->text
+            'event_id' => Event::factory(),
+            'name' => $this->faker->sentence(3)
         ];
     }
 }

@@ -24,8 +24,8 @@ class EventFactory extends Factory
     {
         return [
             'planner_id' => User::factory(),
-            'title' => $this->faker->sentence(1),
-            'description' => $this->faker->sentence(3),
+            'title' => $this->faker->sentence(5),
+            'description' => $this->faker->sentence(15),
             'start'  =>  now(),
             'end'  =>  now(),
             'location'  =>  $this->faker->word,
