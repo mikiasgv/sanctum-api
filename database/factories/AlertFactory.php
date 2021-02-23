@@ -2,18 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Checkpoint;
-use App\Models\Event;
+use App\Models\Alert;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CheckpointFactory extends Factory
+class AlertFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Checkpoint::class;
+    protected $model = Alert::class;
 
     /**
      * Define the model's default state.
@@ -23,8 +22,7 @@ class CheckpointFactory extends Factory
     public function definition()
     {
         return [
-            // 'event_id' => Event::factory(),
-            // 'name' => $this->faker->sentence(3)
+            //
         ];
     }
 }

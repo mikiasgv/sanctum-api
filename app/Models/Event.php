@@ -20,4 +20,9 @@ class Event extends Model
     {
         return $this->hasMany(Checkpoint::class);
     }
+
+    public function alerts()
+    {
+        return $this->hasMany(Alert::class);
+    }
 }

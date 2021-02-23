@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class EventResource extends JsonResource
+class AlertResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,17 +16,13 @@ class EventResource extends JsonResource
     {
         return [
             "id"=> $this->id,
-            "planner_id"=> $this->planner_id,
-            "title"=> $this->title,
-            "description"=> $this->description,
+            "event_id" => $this->event_id,
+            "category" => $this->category,
+            "name"=> $this->name,
+            "location" => $this->location,
             "start"=> $this->start,
             "end"=> $this->end,
-            "location"=> $this->location,
-            "latitude"=> $this->latitude,
-            "longitude"=> $this->longitude,
-            "status"=> $this->status,
-            "checkpoints" => CheckpointResource::collection($this->whenLoaded('checkpoints')),
-            "alerts" => AlertResource::collection($this->whenLoaded('alerts'))
+
         ];
     }
 

@@ -69,7 +69,9 @@ class Handler extends ExceptionHandler
                 ], 401);
             }
 
-            return response(['status' => 'error', 'error' => 'Something Went Wrong'], 500);
+            //return response(['status' => 'error', 'error' => 'Something Went Wrong'], 500);
+
+            return response(['status' => 'error', 'error' => $e->getMessage()], 500);
         }
 
         parent::render($request, $e);

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AlertController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CheckpointController;
 use App\Http\Controllers\Api\CventController;
@@ -25,6 +26,7 @@ Route::post('/token', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::resource('events', CventController::class);
     Route::resource('checkpoints', CheckpointController::class)->except(['index', 'show']);
+    Route::resource('alerts', AlertController::class)->except(['index', 'show']);
 
     Route::delete('/token', [AuthController::class, 'destroy']);
 });

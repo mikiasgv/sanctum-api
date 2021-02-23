@@ -48,6 +48,7 @@ class CventController extends Controller
     public function show(Event $event)
     {
         $checkpoints = $event->checkpoints;
+        $alerts = $event->alerts;
         return new EventResource($event);
     }
 
@@ -62,6 +63,7 @@ class CventController extends Controller
     {
         $event->update($request->all());
         $checkpoints = $event->checkpoints;
+        $alerts = $event->alerts;
 
         return new EventResource($event);
     }
