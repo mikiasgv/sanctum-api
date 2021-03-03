@@ -25,4 +25,9 @@ class Event extends Model
     {
         return $this->hasMany(Alert::class);
     }
+
+    public function places()
+    {
+        return $this->hasMany(Place::class);
+    }
 }

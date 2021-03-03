@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Alert extends Model
+class Place extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['event_id', 'category', 'name', 'body', 'location', 'latitude', 'longitude', 'start', 'end'];
+    protected $fillable = ['event_id', 'category', 'name', 'number', 'location', 'latitude', 'longitude'];
 
     public function event()
     {

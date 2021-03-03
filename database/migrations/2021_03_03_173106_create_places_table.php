@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAlertsTable extends Migration
+class CreatePlacesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,15 @@ class CreateAlertsTable extends Migration
      */
     public function up()
     {
-        Schema::create('alerts', function (Blueprint $table) {
+        Schema::create('places', function (Blueprint $table) {
             $table->id();
             $table->foreignId('event_id');
             $table->string('category');
             $table->string('name');
-            $table->text('body');
+            $table->integer('number');
             $table->string('location');
             $table->double('latitude');
             $table->double('longitude');
-            $table->dateTime('start')->nullable();
-            $table->dateTime('end')->nullable();
             $table->timestamps();
 
             $table->foreign('event_id')->references('id')->on('events');
@@ -37,6 +35,6 @@ class CreateAlertsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alerts');
+        Schema::dropIfExists('places');
     }
 }

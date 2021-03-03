@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AlertResource extends JsonResource
+class PlaceResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -19,12 +19,10 @@ class AlertResource extends JsonResource
             "event_id" => $this->event_id,
             "category" => $this->category,
             "name"=> $this->name,
-            "body"=> $this->body,
+            "number"=> $this->number,
             "location" => $this->location,
             "latitude"=> $this->latitude,
             "longitude"=> $this->longitude,
-            "start"=> $this->start,
-            "end"=> $this->end,
 
         ];
     }

@@ -49,6 +49,7 @@ class CventController extends Controller
     {
         $checkpoints = $event->checkpoints;
         $alerts = $event->alerts;
+        $places = $event->places;
         return new EventResource($event);
     }
 
@@ -64,6 +65,7 @@ class CventController extends Controller
         $event->update($request->all());
         $checkpoints = $event->checkpoints;
         $alerts = $event->alerts;
+        $places = $event->places;
 
         return new EventResource($event);
     }
@@ -79,5 +81,12 @@ class CventController extends Controller
         $event->delete();
 
         return ['status' => 'OK'];
+    }
+
+    public function allEvents()
+    {
+        $events = Event::all();
+
+        return new EventCollectionResource($events);
     }
 }

@@ -26,11 +26,24 @@ class DatabaseSeeder extends Seeder
 
                 \App\Models\Alert::factory()->create([
                     'event_id' => $event->id,
-                    'category' => ['Weather', 'Health', 'Natural Disasters'][rand(0, 2)],
+                    'category' => ['Travel', 'Disaster', 'Health', 'Weather'][rand(0, 3)],
                     'name' => $faker->create()->sentence(3),
+                    'body' => $faker->create()->sentence(15),
                     'location' => $faker->create()->sentence(3),
+                    'latitude' => -34.397,
+                    'longitude' => 150.644,
                     'start' => now(),
                     'end' => now()
+                ]);
+
+                \App\Models\Place::factory()->create([
+                    'event_id' => $event->id,
+                    'category' => ['Hotels', 'Hospitals', 'Restaurants'][rand(0, 2)],
+                    'name' => $faker->create()->sentence(3),
+                    'number' => $faker->create()->randomNumber(),
+                    'location' => $faker->create()->sentence(3),
+                    'latitude' => -34.397,
+                    'longitude' => 150.644
                 ]);
             }
         });

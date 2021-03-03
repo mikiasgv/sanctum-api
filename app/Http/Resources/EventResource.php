@@ -26,7 +26,8 @@ class EventResource extends JsonResource
             "longitude"=> $this->longitude,
             "status"=> $this->status,
             "checkpoints" => CheckpointResource::collection($this->whenLoaded('checkpoints')),
-            "alerts" => AlertResource::collection($this->whenLoaded('alerts'))
+            "alerts" => AlertResource::collection($this->whenLoaded('alerts')),
+            "places" => PlaceResource::collection($this->whenLoaded('places'))
         ];
     }
 

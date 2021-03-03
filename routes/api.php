@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AlertController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CheckpointController;
 use App\Http\Controllers\Api\CventController;
+use App\Http\Controllers\Api\PlaceController;
 use App\Http\Controllers\Api\ProjectController;
 use App\Http\Controllers\Api\TaskController;
 use Illuminate\Http\Request;
@@ -24,9 +25,11 @@ Route::post('/token', [AuthController::class, 'login']);
 
 
 Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/all', [CventController::class, 'allEvents']);
     Route::resource('events', CventController::class);
     Route::resource('checkpoints', CheckpointController::class)->except(['index', 'show']);
     Route::resource('alerts', AlertController::class)->except(['index', 'show']);
+    Route::resource('places', PlaceController::class)->except(['index', 'show']);
 
     Route::delete('/token', [AuthController::class, 'destroy']);
 });

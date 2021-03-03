@@ -68,7 +68,7 @@ class AlertController extends Controller
      */
     public function destroy(Alert $alert)
     {
-        $this->authorize('delete', $alert);
+       $this->authorize('delete', $alert);
        $alert->delete();
 
        return ['status' => 'OK'];
