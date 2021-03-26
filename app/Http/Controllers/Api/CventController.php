@@ -34,7 +34,7 @@ class CventController extends Controller
      */
     public function store(EventRequest $request)
     {
-        dd($request->all());
+        //dd($request->all());
         $event = auth()->user()->events()->create($request->all());
 
         return new EventResource($event);
