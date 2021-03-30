@@ -25,6 +25,7 @@ class AlertRequest extends FormRequest
     {
         return [
             'event_id' => ['required', 'integer'],
+            'original_alert_id' => ['required|unique:alerts'],
             'category' => ['required'],
             'name' => ['required'],
             'location' => ['required']

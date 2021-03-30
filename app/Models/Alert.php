@@ -9,7 +9,7 @@ class Alert extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['event_id', 'category', 'name', 'body', 'location', 'latitude', 'longitude', 'start', 'end'];
+    protected $fillable = ['event_id', 'original_alert_id', 'category', 'name', 'body', 'location', 'latitude', 'longitude', 'start', 'end'];
 
     public function event()
     {

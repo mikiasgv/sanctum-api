@@ -17,6 +17,7 @@ class AlertResource extends JsonResource
         return [
             "id"=> $this->id,
             "event_id" => $this->event_id,
+            "original_alert_id" => $this->original_alert_id,
             "category" => $this->category,
             "name"=> $this->name,
             "body"=> $this->body,

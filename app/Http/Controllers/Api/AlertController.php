@@ -52,8 +52,9 @@ class AlertController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AlertRequest $request, Alert $alert)
+    public function update(AlertRequest $request, $originalId)
     {
+        $alert = Alert::where('original_alert_id', $originalId)->first();
         $this->authorize('update', $alert);
         $alert->update($request->all());
 
@@ -66,8 +67,9 @@ class AlertController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alert $alert)
+    public function destroy($originalId)
     {
+        $alert = Alert::where('original_alert_id', $originalId)->first();
        $this->authorize('delete', $alert);
        $alert->delete();
 

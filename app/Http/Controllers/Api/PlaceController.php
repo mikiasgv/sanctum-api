@@ -32,8 +32,9 @@ class PlaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PlaceRequest $request, Place $place)
+    public function update(PlaceRequest $request, $originalId)
     {
+        $place = Place::where('original_place_id', $originalId)->first();
         $this->authorize('update', $place);
         $place->update($request->all());
 
@@ -46,8 +47,9 @@ class PlaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Place $place)
+    public function destroy($originalId)
     {
+        $place = Place::where('original_place_id', $originalId)->first();
         $this->authorize('delete', $place);
         $place->delete();
 

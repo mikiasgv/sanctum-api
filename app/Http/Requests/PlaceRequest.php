@@ -25,6 +25,7 @@ class PlaceRequest extends FormRequest
     {
         return [
             'event_id' => ['required', 'integer'],
+            'original_place_id' => ['required|unique:places'],
             'category' => ['required'],
             'name' => ['required'],
             'location' => ['required'],
