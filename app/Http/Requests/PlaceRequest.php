@@ -29,7 +29,7 @@ class PlaceRequest extends FormRequest
             'category' => ['required'],
             'name' => ['required'],
             'location' => ['required'],
-            'number' => ['required']
+            'rating' => ['required']
         ];
     }
 }
