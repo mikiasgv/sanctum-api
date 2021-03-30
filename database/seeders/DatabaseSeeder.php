@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
                     'original_place_id' => ($faker->create()->sentence(3) . rand(0, 10000)),
                     'category' => ['Hotels', 'Hospitals', 'Restaurants'][rand(0, 2)],
                     'name' => $faker->create()->sentence(3),
-                    'number' => $faker->create()->randomNumber(),
+                    'rating' => 3.45,
                     'location' => $faker->create()->sentence(3),
                     'latitude' => -34.397,
                     'longitude' => 150.644

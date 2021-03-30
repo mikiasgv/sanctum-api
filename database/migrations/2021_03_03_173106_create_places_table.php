@@ -19,7 +19,7 @@ class CreatePlacesTable extends Migration
             $table->string('original_place_id')->unique();
             $table->string('category');
             $table->string('name');
-            $table->integer('number');
+            $table->double('rating');
             $table->string('location');
             $table->double('latitude');
             $table->double('longitude');
