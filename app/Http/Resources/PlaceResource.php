@@ -20,7 +20,7 @@ class PlaceResource extends JsonResource
             "original_place_id" => $this->original_place_id,
             "category" => $this->category,
             "name"=> $this->name,
-            "number"=> $this->number,
+            "rating"=> $this->rating,
             "location" => $this->location,
             "latitude"=> $this->latitude,
             "longitude"=> $this->longitude,
