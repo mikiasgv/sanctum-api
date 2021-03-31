@@ -11,6 +11,17 @@ class Event extends Model
 
     protected $fillable = ['original_id','title', 'description', 'start', 'end', 'location', 'latitude', 'longitude', 'status'];
 
+    protected static function boot()
+    {
+        parent::boot();
+        Event::deleting(function ($event) {
+            $event->alerts->each->delete();
+            $event->places->each->delete();
+            $event->checkpoints->each->delete();
+
+        });
+    }
+
     public function planner()
     {
         return $this->belongsTo(User::class, 'planner_id');

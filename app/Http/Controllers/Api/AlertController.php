@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\AlertRequest;
 use App\Http\Resources\AlertResource;
 use App\Models\Alert;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class AlertController extends Controller
@@ -28,8 +29,11 @@ class AlertController extends Controller
      */
     public function store(AlertRequest $request)
     {
-        $this->authorize('create', [Alert::class, $request->event_id]);
-        $alert = Alert::create($request->all());
+        $eventID = Event::where('original_id', $request->original_event_id)->first()->id;
+
+        $this->authorize('create', [Alert::class, $eventID]);
+
+        $alert = Alert::create(array_merge($request->all(), ['event_id' => $eventID]));
 
         return new AlertResource($alert);
     }
@@ -69,7 +73,7 @@ class AlertController extends Controller
      */
     public function destroy($originalId)
     {
-        $alert = Alert::where('original_alert_id', $originalId)->first();
+       $alert = Alert::where('original_alert_id', $originalId)->first();
        $this->authorize('delete', $alert);
        $alert->delete();
 

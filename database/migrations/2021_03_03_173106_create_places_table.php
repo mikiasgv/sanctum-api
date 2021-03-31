@@ -16,6 +16,7 @@ class CreatePlacesTable extends Migration
         Schema::create('places', function (Blueprint $table) {
             $table->id();
             $table->foreignId('event_id');
+            $table->string('original_event_id');
             $table->string('original_place_id');
             $table->string('category');
             $table->string('name');

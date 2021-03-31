@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PlaceRequest;
 use App\Http\Resources\PlaceResource;
+use App\Models\Event;
 use App\Models\Place;
 use Illuminate\Http\Request;
 
@@ -18,8 +19,11 @@ class PlaceController extends Controller
      */
     public function store(PlaceRequest $request)
     {
-        $this->authorize('create', [Place::class, $request->event_id]);
-        $place = Place::create($request->all());
+        $eventID = Event::where('original_id', $request->original_event_id)->first()->id;
+
+        $this->authorize('create', [Place::class, $eventID]);
+
+        $place = Place::create(array_merge($request->all(), ['event_id' => $eventID]));
 
         return new PlaceResource($place);
     }

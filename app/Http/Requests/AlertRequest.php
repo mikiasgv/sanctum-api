@@ -24,7 +24,7 @@ class AlertRequest extends FormRequest
     public function rules()
     {
         return [
-            'event_id' => ['required', 'integer'],
+            'original_event_id' => ['required'],
             'original_alert_id' => ['required'],
             'category' => ['required'],
             'name' => ['required'],

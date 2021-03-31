@@ -17,6 +17,7 @@ class PlaceResource extends JsonResource
         return [
             "id"=> $this->id,
             "event_id" => $this->event_id,
+            "original_event_id" => $this->original_event_id,
             "original_place_id" => $this->original_place_id,
             "category" => $this->category,
             "name"=> $this->name,

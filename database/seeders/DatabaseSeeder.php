@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
 
                 \App\Models\Alert::factory()->create([
                     'event_id' => $event->id,
+                    'original_event_id' => $faker->create()->sentence(1),
                     'original_alert_id' => ($faker->create()->sentence(3) . rand(0, 10000)),
                     'category' => ['Travel', 'Disaster', 'Health', 'Weather'][rand(0, 3)],
                     'name' => $faker->create()->sentence(3),
@@ -39,6 +40,7 @@ class DatabaseSeeder extends Seeder
 
                 \App\Models\Place::factory()->create([
                     'event_id' => $event->id,
+                    'original_event_id' => $faker->create()->sentence(1),
                     'original_place_id' => ($faker->create()->sentence(3) . rand(0, 10000)),
                     'category' => ['Hotels', 'Hospitals', 'Restaurants'][rand(0, 2)],
                     'name' => $faker->create()->sentence(3),

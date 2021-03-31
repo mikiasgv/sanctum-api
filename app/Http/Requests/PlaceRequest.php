@@ -24,7 +24,7 @@ class PlaceRequest extends FormRequest
     public function rules()
     {
         return [
-            'event_id' => ['required', 'integer'],
+            'original_event_id' => ['required'],
             'original_place_id' => ['required'],
             'category' => ['required'],
             'name' => ['required'],

@@ -16,6 +16,7 @@ class CreateAlertsTable extends Migration
         Schema::create('alerts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('event_id');
+            $table->string('original_event_id');
             $table->string('original_alert_id');
             $table->string('category');
             $table->string('name');
