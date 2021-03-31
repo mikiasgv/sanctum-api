@@ -11,9 +11,9 @@ use Illuminate\Http\Request;
 
 class CventController extends Controller
 {
-    public function __construct() {
-        $this->authorizeResource(Event::class, 'event');
-    }
+    // public function __construct() {
+    //     $this->authorizeResource(Event::class, 'event');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -34,7 +34,6 @@ class CventController extends Controller
      */
     public function store(EventRequest $request)
     {
-        //dd($request->all());
         $event = auth()->user()->events()->create($request->all());
 
         return new EventResource($event);
@@ -46,8 +45,12 @@ class CventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show($id)
     {
+        $event = Event::where('original_id', $id)->firstOrFail();
+
+        $this->authorize('view', $event);
+
         $checkpoints = $event->checkpoints;
         $alerts = $event->alerts;
         $places = $event->places;
@@ -61,8 +64,12 @@ class CventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EventRequest $request, Event $event)
+    public function update(EventRequest $request, $id)
     {
+        $event = Event::where('original_id', $id)->firstOrFail();
+
+        $this->authorize('update', $event);
+
         $event->update($request->all());
         $checkpoints = $event->checkpoints;
         $alerts = $event->alerts;
@@ -77,8 +84,12 @@ class CventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
+    public function destroy($id)
     {
+        $event = Event::where('original_id', $id)->firstOrFail();
+
+        $this->authorize('delete', $event);
+
         $event->delete();
 
         return ['status' => 'OK'];

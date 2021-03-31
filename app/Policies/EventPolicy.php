@@ -30,6 +30,8 @@ class EventPolicy
      */
     public function view(User $user, Event $event)
     {
+
+        //return true;
         return $user->id === $event->planner_id;
     }
 
