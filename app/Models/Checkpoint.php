@@ -9,7 +9,7 @@ class Checkpoint extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['event_id', 'name', 'status'];
+    protected $fillable = ['event_id', 'original_event_id', 'name', 'status'];
 
     protected $casts = [
         'status' => 'boolean',

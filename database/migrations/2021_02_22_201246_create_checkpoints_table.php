@@ -16,6 +16,7 @@ class CreateCheckpointsTable extends Migration
         Schema::create('checkpoints', function (Blueprint $table) {
             $table->id();
             $table->foreignId('event_id');
+            $table->string('original_event_id');
             $table->string('name');
             $table->boolean('status')->default(false);
             $table->timestamps();

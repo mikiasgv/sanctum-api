@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CheckpointRequest;
 use App\Http\Resources\CheckpointResource;
 use App\Models\Checkpoint;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class CheckpointController extends Controller
@@ -18,8 +19,11 @@ class CheckpointController extends Controller
      */
     public function store(CheckpointRequest $request)
     {
-        $this->authorize('create', [Checkpoint::class, $request->event_id]);
-        $checkpoint = Checkpoint::create($request->all());
+        $eventID = Event::where('original_id', $request->original_event_id)->first()->id;
+
+        $this->authorize('create', [Checkpoint::class, $eventID]);
+
+        $checkpoint = Checkpoint::create(array_merge($request->all(), ['event_id' => $eventID]));
 
         return new CheckpointResource($checkpoint);
     }
