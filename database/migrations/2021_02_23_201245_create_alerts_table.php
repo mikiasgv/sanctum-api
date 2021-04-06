@@ -21,9 +21,9 @@ class CreateAlertsTable extends Migration
             $table->string('category');
             $table->string('name');
             $table->text('body');
-            $table->string('location');
-            $table->double('latitude');
-            $table->double('longitude');
+            $table->string('location')->nullable();
+            $table->double('latitude')->nullable();
+            $table->double('longitude')->nullable();
             $table->dateTime('start')->nullable();
             $table->dateTime('end')->nullable();
             $table->timestamps();

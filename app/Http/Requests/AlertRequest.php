@@ -28,7 +28,6 @@ class AlertRequest extends FormRequest
             'original_alert_id' => ['required'],
             'category' => ['required'],
             'name' => ['required'],
-            'location' => ['required']
         ];
     }
 }
