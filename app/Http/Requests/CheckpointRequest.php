@@ -25,6 +25,7 @@ class CheckpointRequest extends FormRequest
     {
         return [
             'original_event_id' => ['required'],
+            'original_checkpoint_id' => ['required'],
             'name' => ['required'],
             'status' => ['boolean']
         ];

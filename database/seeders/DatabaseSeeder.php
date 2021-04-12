@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
                 \App\Models\Checkpoint::factory()->create([
                     'event_id' => $event->id,
                     'original_event_id' => $faker->create()->sentence(1),
+                    'original_checkpoint_id' => ($faker->create()->sentence(3) . rand(0, 10000)),
                     'name' => $faker->create()->sentence(3),
                 ]);
 
