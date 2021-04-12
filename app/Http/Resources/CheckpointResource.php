@@ -19,6 +19,7 @@ class CheckpointResource extends JsonResource
             'event_id' => $this->event_id,
             "name"=> $this->name,
             "status"=> $this->status,
+            "updated_at"=> $this->updated_at,
         ];
     }
 

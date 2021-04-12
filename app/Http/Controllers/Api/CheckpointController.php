@@ -35,8 +35,9 @@ class CheckpointController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CheckpointRequest $request, Checkpoint $checkpoint)
+    public function update(CheckpointRequest $request, $originalId)
     {
+        $checkpoint = Checkpoint::where('original_checkpoint_id', $originalId)->first();
         $this->authorize('update', $checkpoint);
         $checkpoint->update($request->all());
 
@@ -49,8 +50,9 @@ class CheckpointController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Checkpoint $checkpoint)
+    public function destroy($originalId)
     {
+       $checkpoint = Checkpoint::where('original_checkpoint_id', $originalId)->first();
        $this->authorize('delete', $checkpoint);
        $checkpoint->delete();
 

@@ -17,6 +17,7 @@ class CreateCheckpointsTable extends Migration
             $table->id();
             $table->foreignId('event_id');
             $table->string('original_event_id');
+            $table->string('original_checkpoint_id');
             $table->string('name');
             $table->boolean('status')->default(false);
             $table->timestamps();
