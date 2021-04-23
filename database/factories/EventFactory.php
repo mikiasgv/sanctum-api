@@ -27,6 +27,7 @@ class EventFactory extends Factory
             'original_id' => $this->faker->sentence(5),
             'title' => $this->faker->sentence(5),
             'description' => $this->faker->sentence(15),
+            'address' => $this->faker->address,
             'start'  =>  now(),
             'end'  =>  now(),
             'location'  =>  $this->faker->word,
